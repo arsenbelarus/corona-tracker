@@ -43,7 +43,6 @@ const App = () => {
   }, [])
 
   const onCountryChange = async (e: ChangeEvent<{ name?: string | undefined; value: unknown; }>) => {
-    debugger
     const countryCode = e.target.value
     setSelectValue(countryCode)
     const url = countryCode === 'worldwide'
@@ -53,8 +52,8 @@ const App = () => {
       .then<CountryFromServerType>(response => response.json())
       .then(data => {
         if (countryCode !== 'worldwide') {
-          setMapCenter({lat: data.countryInfo.lat, lng: data.countryInfo.long})
           setMapZoom(5)
+          setMapCenter({lat: data.countryInfo.lat, lng: data.countryInfo.long})
         } else {
           setMapCenter({lat: 34.80746, lng: -40.4796})
           setMapZoom(3)

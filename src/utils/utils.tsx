@@ -86,7 +86,6 @@ const casesTypeColor: CasesTypeColorType = {
 }
 
 export const showDataOnMap = (data: Array<CountryFromServerType>, casesType: CasesType) => {
-  debugger
   return data.map(country => (
     <Circle center={[country.countryInfo.lat, country.countryInfo.long]}
             fillOpacity={0.4}
