@@ -1,8 +1,8 @@
 import React from "react";
 import "./Map.css"
 import {Map as LeafletMap, TileLayer} from "react-leaflet"
-import {CasesType, CountryFromServerType} from "./types";
-import {showDataOnMap} from "./utils";
+import {CasesType, CountryFromServerType} from "../../utils/types";
+import {showDataOnMap} from "../../utils/utils";
 
 
 type MapPropsType = {

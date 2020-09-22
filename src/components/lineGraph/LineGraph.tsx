@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Line} from "react-chartjs-2";
-import {CasesType, LineGraphFromServerType} from "./types";
-import {buildChartData, options} from "./utils";
+import {CasesType, LineGraphFromServerType} from "../../utils/types";
+import {buildChartData, options} from "../../utils/utils";
 
 type LineGraphType = {
   casesType: CasesType,

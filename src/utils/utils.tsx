@@ -12,14 +12,16 @@ export const buildChartData = (data: LineGraphFromServerType, cases: CasesType) 
   const chartData = []
   let lastDataPoint: number | null = null
   for (let date in data[cases]) {
-    if (lastDataPoint) {
-      const newDataPoint = {
-        x: date,
-        y: data[cases][date] - lastDataPoint
+      if (data[cases].hasOwnProperty(date)) {
+        if (lastDataPoint) {
+          const newDataPoint = {
+            x: date,
+            y: data[cases][date] - lastDataPoint
+          }
+          chartData.push(newDataPoint)
+        }
+        lastDataPoint = data[cases][date]
       }
-      chartData.push(newDataPoint)
-    }
-    lastDataPoint = data[cases][date]
   }
   return chartData
 }
@@ -38,7 +40,7 @@ export const options = {
     mode: "index",
     intersect: false,
     callbacks: {
-      label: function (tooltipItem: any, data: any) {
+      label: function (tooltipItem: any) {
         return numeral(tooltipItem.value).format("+0,0")
       },
     },
@@ -59,7 +61,7 @@ export const options = {
           display: false
         },
         ticks: {
-          callback: function (value: any, index: any, values: any) {
+          callback: function (value: number) {
             return numeral(value).format("0a")
           }
         }

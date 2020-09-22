@@ -1,7 +1,7 @@
 import React from "react";
 import './Table.css';
 import numeral from "numeral"
-import {CountryFromServerType} from "./types";
+import {CountryFromServerType} from "../../utils/types";
 
 type TablePropsType = {
   countries: CountryFromServerType[] | undefined
